@@ -1,0 +1,54 @@
+FUNCTION Dot_product(VAR u,v:INTEGER) : STRING
+VAR
+    i:INTEGER=0;
+    j:INTEGER=0;
+    sum:INTEGER=0;
+    msg:STRING="";
+BEGIN
+    FOR i FROM 0 TO u.length-1 STEP 1  DO
+        Read(u[i]);
+    END_FOR
+    FOR j FROM v.length-1 TO 2 STEP 1  DO
+        Read(v[j]);
+    END_FOR
+    WHILE (i=u.length) DO
+        sum+=u[i]*v[j];
+        i+=1;
+        j+=1;
+    END_WHILE
+    IF (sum=0) THEN
+        msg=:Write(vectors are orthogonal);
+    ELSE
+        msg=:Write(vectors are not orthogonal);
+    END_IF
+    RETURN msg ;
+END
+///////////////
+ALGORITHM Dot product
+VAR
+    u: ARRAY_OF INTEGER[3];
+    v: ARRAY_OF INTEGER[3];
+BEGIN
+    Write(Dot_product(u,v));
+END
+///////////////////////////////////////////////////////////////////
+ALGORITHM Insertion_sort
+VAR
+    T:ARRAY_OF INTEGER[n];
+    n,j,i:INTEGER;
+    num:INTEGER:=0;
+BEGIN
+    Read(n);
+    FOR i FROM 0 TO n-1 STEP 1  DO
+        Read(T[i]);
+    END_FOR
+    FOR i FROM 1 TO n-1 STEP step  DO
+        num = T[i]
+        j= i -1
+        WHILE (j >= 0) and (T[j] > num)  DO
+            T[j+1] = T[j]
+            j = j - 1   
+        END_WHILE
+        T[j+1] = T[j]
+    END_FOR
+END
